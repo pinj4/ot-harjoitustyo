@@ -1,0 +1,130 @@
+commit a4d6f99c6b50a42213de1cb0f6ab5eea39280927
+Author: Pinja <pinja.salomaki@gmail.com>
+Date:   Mon Mar 22 18:24:53 2021 +0200
+
+    muutokset
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 18fef96dd38c814cd2329bf98d63b70f80fb2768
+Author: Pinja <pinja.salomaki@gmail.com>
+Date:   Mon Mar 22 18:06:52 2021 +0200
+
+    uusi hakemisto
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit f9a83abe8673a6b944ae4ad8cc258061d4921aa9
+Author: Pinja <pinja.salomaki@gmail.com>
+Date:   Mon Mar 22 17:58:50 2021 +0200
+
+    muutoksia
+
+ eka.txt    | 7 +++----
+ kolmas.txt | 2 +-
+ 2 files changed, 4 insertions(+), 5 deletions(-)
+
+commit a19710140738ee31bfc9afe8bce25e23e0338edd
+Author: Pinja <pinja.salomaki@gmail.com>
+Date:   Mon Mar 22 17:53:56 2021 +0200
+
+    poisto
+
+ tiedosto.txt | 15 ---------------
+ 1 file changed, 15 deletions(-)
+
+commit ed47c0cd66491000a384b2b63a4802e45516af58
+Author: Pinja <pinja.salomaki@gmail.com>
+Date:   Mon Mar 22 17:53:22 2021 +0200
+
+    nimen muutos
+
+ eka.txt | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+
+commit 43b5ac02cde118ddf7b68fc8f0e4917335cb5763
+Author: Pinja <pinja.salomaki@gmail.com>
+Date:   Mon Mar 22 17:52:07 2021 +0200
+
+    toisen poisto
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 70ed733d93b5849b3ddf19aaf8d3ae0081daf7b5
+Author: Pinja <pinja.salomaki@gmail.com>
+Date:   Mon Mar 22 17:49:05 2021 +0200
+
+    muutoksia tiedostoon
+
+ tiedosto.txt | 25 +++++++++----------------
+ 1 file changed, 9 insertions(+), 16 deletions(-)
+
+commit 4f714f1d1db9e87ccfe5905ea0cf2f79b1193b75
+Author: Pinja <pinja.salomaki@gmail.com>
+Date:   Mon Mar 22 17:44:45 2021 +0200
+
+    lisää tekstiä
+
+ tiedosto.txt | 23 ++++++++++++++++++++++-
+ 1 file changed, 22 insertions(+), 1 deletion(-)
+
+commit bf75af97649787650cf55d0ed31bd9a1f3b37980
+Author: Pinja <pinja.salomaki@gmail.com>
+Date:   Mon Mar 22 17:21:10 2021 +0200
+
+    lisäys
+
+ stuff/things.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit a9454e29fe33df1ddd000334f188a086942d256d
+Author: Pinja <pinja.salomaki@gmail.com>
+Date:   Mon Mar 22 17:16:02 2021 +0200
+
+    muutoksia
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 855b6dd0d10e55e44fca7328095203a9efaa499f
+Author: Pinja <pinja.salomaki@gmail.com>
+Date:   Mon Mar 22 17:13:49 2021 +0200
+
+    lisäys
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 7fe8d61fad67ddd917546119bb988c120735adaf
+Author: Pinja <pinja.salomaki@gmail.com>
+Date:   Mon Mar 22 17:11:05 2021 +0200
+
+    muutos
+
+ tiedosto.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit bef3943756cb0705b189ef00798f51a696256207
+Author: Pinja <pinja.salomaki@gmail.com>
+Date:   Mon Mar 22 17:07:31 2021 +0200
+
+    muutos ja lisäys
+
+ toinen.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit d607a2b374fef8667aaacfff8da14bbc9514d90c
+Author: Pinja <pinja.salomaki@gmail.com>
+Date:   Mon Mar 22 17:01:27 2021 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
