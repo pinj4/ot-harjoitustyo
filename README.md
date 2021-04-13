@@ -4,4 +4,4 @@
 
 ## Dokumentaatio
 
-- [vaatimuusmaarittely.md]
+- https://github.com/pinjasa/ot-harjoitustyo/blob/master/laskarit/viikko1/vaatimusmaarittely.md [vaatimuusmaarittely.md]
