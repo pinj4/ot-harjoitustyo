@@ -1,4 +1,4 @@
-<title>Tetris</title>
+## Tetris
 
 *ei toimi vielä*
 
@@ -12,6 +12,6 @@ vain yksi käyttäjärooli
 
 **perusversion toiminnallisuus**
 
-käyttäjä voi luoda käyttäjätunnuksen ja kirjautua sisään/ulos
-voi nähdä aikaisemmat pisteensä suuruusjärjestyksessä
-käyttäjä pystyy pelaamaan
+- käyttäjä voi luoda käyttäjätunnuksen ja kirjautua sisään/ulos
+- voi nähdä aikaisemmat pisteensä suuruusjärjestyksessä
+- käyttäjä pystyy pelaamaan
