@@ -1,4 +1,4 @@
-**Tetris**
+<title>Tetris</title>
 
 *ei toimi vielä*
 
