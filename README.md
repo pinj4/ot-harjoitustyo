@@ -1,11 +1,17 @@
-**ot-harjoitustyö**
+**Tetris**
 
-viikko 1:
+*ei toimi vielä*
 
-[komentorivi.txt](https://github.com/pinjasa/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
+**sovelluksen tarkoitus**
 
-[gitlog.txt](https://github.com/pinjasa/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
+toimii kuten perus tetris;
+ylhäältä putoaa yksitellen paloja, joita käyttäjä pystyy liikuttamaan vasemmalle ja oikealle sekä kääntelemään tavoitteenaan asettaa ne mahdollisimman tiiviisti. Kun saa rivin täyteen, se häviää ruudukosta.
 
-viikko 2:
+**käyttäjät**
+vain yksi käyttäjärooli
 
-[vaatimusmaarittely.md](https://github.com/pinjasa/ot-harjoitustyo/blob/master/laskarit/viikko1/vaatimusmaarittely.md)
+**perusversion toiminnallisuus**
+
+käyttäjä voi luoda käyttäjätunnuksen ja kirjautua sisään/ulos
+voi nähdä aikaisemmat pisteensä suuruusjärjestyksessä
+käyttäjä pystyy pelaamaan
