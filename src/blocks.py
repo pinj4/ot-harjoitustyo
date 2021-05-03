@@ -110,8 +110,7 @@ class Blocks():
         block_type = choice(self.blocks)
         x = 0
         y = 0
-        rotation = 0
-        block = [block_type, x, y, rotation]
+        block = [block_type, x, y]
         return block
 
 #test_block = Blocks()
