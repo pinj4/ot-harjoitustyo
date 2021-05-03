@@ -20,11 +20,12 @@
 ## Dokumentaatio
 
 - [vaatimuusmaarittely.md](/laskarit/viikko1/vaatimusmaarittely.md)
-- [arkkitehtuuri.md](https://github.com/pinjasa/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
-- [tuntikirjanpito.md](https://github.com/pinjasa/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
+- [arkkitehtuuri.md](./dokumentaatio/arkkitehtuuri.md)
+- [kayttoohje.md](./dokumentaatio/kayttoohje.md)
+- [tuntikirjanpito.md](./dokumentaatio/tuntikirjanpito.md)
 
 ## Releaset
-- [viikko 5](https://github.com/pinjasa/ot-harjoitustyo/releases/tag/viikko5)
+- [viikko 5](./releases/tag/viikko5)
 
 ## Asennus
 
