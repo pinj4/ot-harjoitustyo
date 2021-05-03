@@ -24,6 +24,11 @@ class Tetris:
         display.blit(next_piece, (600, 100))
 
         gameloop = GameLoop(display)
+
+        #font = pygame.font.SysFont("comicsans", 40, bold = True)
+        #score = font.render(f"SCORE: {gameloop.score}", 1, (210, 150, 75))
+        #display.blit(score, (600, 600))
+
         gameloop.handle_events()
 
 if __name__ == "__main__":
