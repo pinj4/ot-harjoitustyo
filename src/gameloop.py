@@ -86,8 +86,8 @@ class GameLoop:
 
 
     def block_stop(self):
-        """ pysäyttää palan liikkumisen eli tallettaa sen arvot sanakirjaan
-            ,jossa on kaikki laudalla olevat palat
+        """ pysäyttää palan liikkumisen eli tallettaa sen arvot sanakirjaan,
+        jossa on kaikki laudalla olevat palat
         """
 
         for i in range(len(self.board)):
@@ -187,6 +187,8 @@ class GameLoop:
                         self.blocks[(j,i)] = self.block[0]["color"]
 
     def clear_row(self):
+        """tyhjentää rivin, kun se on täynnä sekä siirtää laudalle jäävät palat rivin alaspäin
+        """
         n = 0
         for i in range(len(self.board)):
             row = self.board[i]
