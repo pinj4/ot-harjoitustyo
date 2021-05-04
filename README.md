@@ -26,6 +26,7 @@
 
 ## Releaset
 - [viikko 5](./releases/tag/viikko5)
+- [viikko 6](./releases/tag/viikko6)
 
 ## Asennus
 
