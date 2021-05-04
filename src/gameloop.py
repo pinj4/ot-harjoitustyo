@@ -187,22 +187,22 @@ class GameLoop:
                         self.blocks[(j,i)] = self.block[0]["color"]
 
     def clear_row(self):
-        inc = 0
+        n = 0
         for i in range(len(self.board)):
             row = self.board[i]
             if (255,255,255) not in row:
-                inc += 1
+                n += 1
                 ind = i
                 for j in range(len(row)):
                     try:
                         del self.blocks_on_board[(j,i)]
                     except:
                         continue
-            if inc > 0:
+            if n > 0:
                 for key in sorted(list(self.blocks_on_board), key = lambda i: i[1])[::-1]:
                     i, j = key
                     if j < ind:
-                        new_key = (i, j+ inc)
+                        new_key = (i, j + n)
                         self.blocks_on_board[new_key] = self.blocks_on_board.pop(key)
 
                 self.score += 10
