@@ -25,8 +25,8 @@
 - [tuntikirjanpito.md](./dokumentaatio/tuntikirjanpito.md)
 
 ## Releaset
-- [viikko 5](./releases/tag/viikko5)
-- [viikko 6](./releases/tag/viikko6)
+- [viikko 5](https://github.com/pinjasa/ot-harjoitustyo/releases/tag/viikko5)
+- [viikko 6](https://github.com/pinjasa/ot-harjoitustyo/releases/tag/viikko6)
 
 ## Asennus
 
