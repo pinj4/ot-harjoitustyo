@@ -26,8 +26,7 @@ class Blocks():
                                 "0000",
                                 "0111",
                                 "0001"]]
-        self.j_block["color"] = (0,0,255) # blue
-        
+        self.j_block["color"] = (0,0,255)
         self.l_block["shape"] = [["0000",
                                 "0010",
                                 "0010",
@@ -44,16 +43,16 @@ class Blocks():
                                 "0111",
                                 "0000",
                                 "0000"]]
-        self.l_block["color"] = (255, 255, 0) # yellow ?
-        
+        self.l_block["color"] = (255, 255, 0)
+
         self.s_block["shape"] = [["0011",
                                 "0110",
                                 "0000",
                                 "0000"],
                                 ["0100",
                                 "0110",
-                                "0010"]]                                
-        self.s_block["color"] = (0, 255, 0) # green
+                                "0010"]]
+        self.s_block["color"] = (0, 255, 0)
 
         self.square["shape"] = [["0011",
                                 "0011",
@@ -63,7 +62,7 @@ class Blocks():
                                 "0011",
                                 "0000",
                                 "0000"]]
-        self.square["color"] = (255, 100, 180) # pink
+        self.square["color"] = (255, 100, 180)
 
         self.stick["shape"] = [["0001",
                                "0001",
@@ -73,7 +72,7 @@ class Blocks():
                                "0000",
                                "0000",
                                "0000"]]
-        self.stick["color"] = (0, 255, 255) # light blue
+        self.stick["color"] = (0, 255, 255)
 
         self.t_block["shape"] = [["0000",
                                 "0010",
@@ -90,9 +89,9 @@ class Blocks():
                                 ["0000",
                                 "0010",
                                 "0111",
-                                "0000"]]                                
-        self.t_block["color"] = (240, 0, 255) # purple ??
-        
+                                "0000"]]
+        self.t_block["color"] = (240, 0, 255)
+
         self.z_block["shape"] = [["1100",
                                 "0110",
                                 "0000",
@@ -101,49 +100,19 @@ class Blocks():
                                 "0110",
                                 "0100",
                                 "0000"]]
-        self.z_block["color"] = (255, 0, 0) # red
-         
-        self.blocks= [self.j_block, self.l_block, self.s_block, 
+        self.z_block["color"] = (255, 0, 0)
+
+        self.blocks= [self.j_block, self.l_block, self.s_block,
                       self.square, self.stick, self.t_block, self.z_block]
-        
+
     def new_block(self):
+        """ muodostaa block-olion
+
+        Returns:
+            lista, jonka arvoina on block-olio, arvo x ja arvo y
+        """
         block_type = choice(self.blocks)
         x = 0
         y = 0
         block = [block_type, x, y]
         return block
-
-#test_block = Blocks()
-#block1 = test_block.new_block()
-#print(block1[0]["shape"][0][0],block1[0]["shape"][1])
-#print(block1)
-
-#block = block1[0]["shape"][0]
-
-#for i in range(len(block)):
-    #for j in range(len(block[i])):
-        #print(block[i][j], "i,j",(j,i))
-
-
-
-
-
-
-        
-
-
-        
-
-
-        
-
-        
-
-
-    
-            
-
-   
-
-    
-

@@ -19,3 +19,4 @@ def test(ctx):
 @task
 def start(ctx):
     ctx.run("python3 src/main.py")
+    

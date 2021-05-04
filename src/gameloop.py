@@ -8,14 +8,14 @@ class GameLoop:
         self.display = display
 
         self.board = Board(self.display)
-            
-        self.board = self.board.tetris_board()   
 
-      
+        self.board = self.board.tetris_board()
+
+
         self.width = 600
         self.height = 700
         self._cell_size = 20
-        self._tetris_width = self._cell_size * 15 
+        self._tetris_width = self._cell_size * 15
         self._tetris_height = self._cell_size * 30
         self._left_x = (self.width - self._tetris_width) // 2
         self._right_x = self._left_x + self.width
@@ -33,9 +33,11 @@ class GameLoop:
         self._next_block = self._next_block.new_block()
         self.get_new_block = False
         self.rotation = 0
-        
-    
+
+
     def setup_board(self):
+        """ asettaa pelilaudan matriisin koordinaateille arvot eli rgb-värit
+        """
         blocks = self.blocks
         for i in range(len(self.board)):
             for j in range(len(self.board[i])):
@@ -43,16 +45,20 @@ class GameLoop:
                     self.board[i][j] = self.blocks_on_board[(j,i)]
                 elif (j,i) in blocks:
                     self.board[i][j] = blocks[(j,i)]
-        
-    
+
+
     def draw_board(self):
+        """ piirtää pygamen näytölle pelilaudan sen koordinaattien arvojen mukaan
+            sekä pelaajan senhetkiset pisteet
+        """
         self.setup_board()
 
         for i in range(len(self.board)):
             for j in range(len(self.board[i])):
-                rect = (self._left_x + j * self._cell_size, self._top_y + i * self._cell_size, self._cell_size, self._cell_size)
+                rect = (self._left_x + j * self._cell_size, self._top_y + i * self._cell_size,
+                        self._cell_size, self._cell_size)
                 pygame.draw.rect(self.display, self.board[i][j], rect ,0)
-        
+
         rect = (600, 600, self._cell_size * 20, self._cell_size*20)
         pygame.draw.rect(self.display,(230,210,170), rect ,0)
         font = pygame.font.SysFont("comicsans", 40)
@@ -60,22 +66,29 @@ class GameLoop:
         self.display.blit(score, (600, 600))
         pygame.display.flip()
 
-    
     def _can_move(self):
+        """ tarkistaa pystyykö tetris-pala liikkumaan menemättä pelilaudan reunojen yli
+
+        Returns:
+            boolean, joko voi liikkua tai ei
+        """
 
         for pos in self.filled_in:
             if pos[0] > 20 or pos[0] < 0:
                 return False
             if pos[1] > 28 or pos[1] < 0:
                 return False
-            
+
             if (pos[0], pos[1] + 1) in self.blocks_on_board:
                 return False
-            
+
         return True
-    
-    
-    def _block_stop(self):
+
+
+    def block_stop(self):
+        """ pysäyttää palan liikkumisen eli tallettaa sen arvot sanakirjaan
+            ,jossa on kaikki laudalla olevat palat
+        """
 
         for i in range(len(self.board)):
             for j in range(len(self.board[i])):
@@ -83,46 +96,56 @@ class GameLoop:
                     self.blocks_on_board[(j,i)] = self.blocks[(j,i)]
 
         self.get_new_block = True
-    
+
     def change_block(self):
+        """ muodostaa uuden palan
+        """
         self.block = self._next_block
         self._next_block = Blocks()
         self._next_block = self._next_block.new_block()
         self.get_new_block = False
         self.rotation = 0
-    
+
     def show_next_block(self):
+        """näyttää pelatessa mikä pala on seuraavana jonossa
+        """
         rect = (600, 150, self._cell_size * 20, self._cell_size*20)
         pygame.draw.rect(self.display,(230,210,170), rect ,0)
-        
+
         block = self._next_block
         next_block = []
         for i in range(len(block[0]["shape"][0])):
             for j in range(len(block[0]["shape"][0][i])):
                 if block[0]["shape"][0][i][j] == "1":
-                    next_block.append((j,i)) 
+                    next_block.append((j,i))
 
         for box in next_block:
-                rect = (600 + box[0] * self._cell_size,  150 + box[1] * self._cell_size, self._cell_size, self._cell_size)
-                pygame.draw.rect(self.display, block[0]["color"], rect ,0)
-    
+            rect = (600 + box[0] * self._cell_size,  150 + box[1] * self._cell_size,
+                    self._cell_size, self._cell_size)
+            pygame.draw.rect(self.display, block[0]["color"], rect ,0)
 
 
     def block_rotate(self):
+        """ kääntää palan
+        """
         self.rotation += 1
         if self.rotation >= len(self.block[0]["shape"]):
             self.rotation = 0
 
 
     def block_moves(self, direction):
+        """ liikuttaa palaa muuttamalla sen x ja y arvoja eli koordinaatteja
+        Args:
+            direction (str): mihin suuntaan palikka on liikkumassa
+        """
         self.filled_in.clear()
-    
+
 
         for i in self.blocks:
             self.blocks[i] = (255, 255, 255)
 
         block = self.block[0]["shape"][self.rotation]
-        
+
         if direction == "down":
             self.block[2] += 1
 
@@ -130,13 +153,13 @@ class GameLoop:
                 for j in range(len(block[i])):
                     if block[i][j] == "1":
                         self.filled_in.append((j + self.block[1], i + self.block[2]))
-            
-                
+
+
             for i in range(self.block[2],len(self.board)):
                 for j in range(len(self.board[i])):
                     if (j,i) in self.filled_in:
                         self.blocks[(j,i)] = self.block[0]["color"]
-        
+
         if direction == "right":
             self.block[1] += 1
 
@@ -144,13 +167,12 @@ class GameLoop:
                 for j in range(len(block[i])):
                     if block[i][j] == "1":
                         self.filled_in.append((j + self.block[1],i + self.block[2]))
-        
+
             for i in range(len(self.board)):
                 for j in range(len(self.board[i])):
                     if (j,i) in self.filled_in:
                         self.blocks[(j,i)] = self.block[0]["color"]
-    
-            
+
         if direction == "left":
             self.block[1] -= 1
 
@@ -158,12 +180,12 @@ class GameLoop:
                 for j in range(len(block[i])):
                     if block[i][j] == "1":
                         self.filled_in.append((j + self.block[1],i + self.block[2]))
-        
+
             for i in range(len(self.board)):
                 for j in range(len(self.board[i])):
                     if (j,i) in self.filled_in:
                         self.blocks[(j,i)] = self.block[0]["color"]
-    
+
     def clear_row(self):
         inc = 0
         for i in range(len(self.board)):
@@ -173,54 +195,25 @@ class GameLoop:
                 ind = i
                 for j in range(len(row)):
                     try:
-                        del self.blocks_on_board[(j,i)] 
+                        del self.blocks_on_board[(j,i)]
                     except:
                         continue
             if inc > 0:
-                for key in sorted(list(self.blocks_on_board), key = lambda x: x[1])[::-1]:
-                    x, y = key
-                    if y < ind:
-                        newKey = (x, y+ inc)
-                        self.blocks_on_board[newKey] = self.blocks_on_board.pop(key)
-            
-                self.score += 10 
+                for key in sorted(list(self.blocks_on_board), key = lambda i: i[1])[::-1]:
+                    i, j = key
+                    if j < ind:
+                        new_key = (i, j+ inc)
+                        self.blocks_on_board[new_key] = self.blocks_on_board.pop(key)
+
+                self.score += 10
 
 
 
-            
-            #if inc > 0:
-                #temp = {}
-                #for block in self.blocks_on_board:
-                    #if block[1] < ind:
-                        #color = self.blocks_on_board[block]
-                        #y = block[1] + 1
-                        #x = block[0] 
-                        #temp[(x,y)] = color
-                    #temp[(block)] = (255,255,255)
-                #self.blocks.clear()
-                #self.blocks_on_board.clear()
-                #for n in temp:
-                    #self.blocks[n] = temp[n]
-                    #self.blocks_on_board[n] = temp[n]
-                
-                #for block in self.blocks:
-                    #if block[1] < ind:
-                        #color = self.blocks[block]
-                        #y = block[1] + 1
-                        #x = block[0] 
-                        #temp[(x,y)] = color
-                        #temp[(block)] = (255,255,255)
-                #self.blocks.clear()
-                #for n in temp:
-                    #self.blocks[n] = temp[n]
-                    #self.blocks_on_board[n] = temp[n]
-                
-                #self.draw_board()
-            
 
-        
-    
     def handle_events(self):
+        """ liikuttaa palikkaa kokoajan alaspäin
+            ja valvoo pelin aikana tapahtuvia tapahtumia ja toimii niiden mukaan.
+        """
         while True:
 
             self.draw_board()
@@ -228,14 +221,9 @@ class GameLoop:
 
             self.block_moves("down")
             self.clear_row()
-            
-            #font = pygame.font.SysFont("comicsans", 40, bold = True)
-            #score = font.render(f"SCORE: {str(self.score)}", 1, (210, 150, 75))
-            #self.display.blit(score, (600, 600))
-            
+
             if not self._can_move():
-                #self.clear_row()
-                self._block_stop()
+                self.block_stop()
                 self.change_block()
             self.draw_board()
             self.show_next_block()
@@ -257,31 +245,3 @@ class GameLoop:
                 if event.type == pygame.QUIT:
                     pygame.display.quit()
                     quit()
-            
-
-
-
-display1 = pygame.display.set_mode((600,700))
-testi = GameLoop(display1)
-block1 = Blocks()
-testi.block_moves("down")
-print(testi.blocks)
-
-for block in testi.blocks:
-    print(block, testi.blocks[block])
-#test_block = block1.new_block
-#print(testi.block_moves("down"))
-#boardh = testi.draw_board()
-#print(testi.block_rotate())
-#print(testi.filled_in)
-#print(testi.block[1])
-#print(testi.block_moves("down"))
-
-#print(3%2)
-#print(1%2)
-#print(2%2)
-
-#for i in range(len(boardh)):
-    #print(f"i: {i}")
-    #for j in range(len(boardh[i])):
-        #print("j:",j)

@@ -1,5 +1,4 @@
 import pygame
-from board import Board
 from gameloop import GameLoop
 
 
@@ -25,13 +24,9 @@ class Tetris:
 
         gameloop = GameLoop(display)
 
-        #font = pygame.font.SysFont("comicsans", 40, bold = True)
-        #score = font.render(f"SCORE: {gameloop.score}", 1, (210, 150, 75))
-        #display.blit(score, (600, 600))
-
         gameloop.handle_events()
 
 if __name__ == "__main__":
     tetris = Tetris()
     tetris.play()
-
+    
