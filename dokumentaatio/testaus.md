@@ -9,6 +9,8 @@ sovelluslogiikkasta vastaavia luokkia (Blocks, Board, GameLoop, Tetris) on testa
 ## Testauskattavuus
 Sovelluksen testeuksen haaraumakattavuus on 67%
 
+![](./kuvat/test-coverage.png)
+
 Testikattavuuden ulkopuolelle jäivät pygamen display.draw metodia käyttävät toiminnot
 
 ## Asennus
