@@ -1,5 +1,7 @@
 # Käyttöohje
 
+Lataa sovelluksen viimeisimmän releasen lähdekoodi _Assets_-osion alta kohdasta _Source code_.
+
 ## Ohjelman käynnistäminen
 
 Asenna rippuvuudet komennolla
