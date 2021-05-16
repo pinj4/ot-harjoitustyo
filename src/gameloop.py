@@ -234,7 +234,11 @@ class GameLoop:
 
 
     def game_over(self):
+        """tarkistaa onko peli hävitty, eli onko tetris-palikoita kasaantunut pelialueen yläreunaan saakka
 
+        Returns:
+            boolean: True, jos peli on hävitty, False, jos ei
+        """
         for i in self.board[1]:
             if not self._can_move() and i != (255, 255, 255):
                 return True
@@ -281,8 +285,6 @@ class GameLoop:
 
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_DOWN:
-                        self.block_moves("down")
                     if event.key == pygame.K_RIGHT:
                         self.block_moves("right")
                     if event.key == pygame.K_LEFT:
