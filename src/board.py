@@ -8,10 +8,10 @@ class Board:
         """ muodostaa pelilaudan
 
         Returns:
-            20 * 40 matriisi, jonka jokaisen jäsenen arvona (255,255,255) eli valkoinen
+            15 * 35 matriisi, jonka jokaisen jäsenen arvona (255,255,255) eli valkoinen
         """
-        height = 40
-        width = 20
+        height = 35
+        width = 15
 
         for i in range(height):
             row = []

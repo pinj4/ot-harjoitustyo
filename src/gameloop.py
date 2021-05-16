@@ -14,14 +14,15 @@ class GameLoop:
 
         self.width = 600
         self.height = 700
-        self._cell_size = 20
-        self._tetris_width = self._cell_size * 15
-        self._tetris_height = self._cell_size * 30
+        self._cell_size = 25
+        self._tetris_width = self._cell_size * 12
+        self._tetris_height = self._cell_size * 24
         self._left_x = (self.width - self._tetris_width) // 2
         self._right_x = self._left_x + self.width
         self._top_y = self.height - self._tetris_height
         self._bottom_y = self._top_y + self.height
         self.score = 0
+        self.hscore = self.highest_score()
 
         self.blocks = {}
         self.filled_in = []
@@ -59,7 +60,7 @@ class GameLoop:
                         self._cell_size, self._cell_size)
                 pygame.draw.rect(self.display, self.board[i][j], rect ,0)
 
-        rect = (600, 600, self._cell_size * 20, self._cell_size*20)
+        rect = (600, 600, self._cell_size * 15, self._cell_size*15)
         pygame.draw.rect(self.display,(230,210,170), rect ,0)
         font = pygame.font.SysFont("comicsans", 40)
         score = font.render(f"SCORE: {self.score}", 1, (210, 150, 75))
@@ -74,9 +75,11 @@ class GameLoop:
         """
 
         for pos in self.filled_in:
-            if pos[0] > 20 or pos[0] < 0:
-                return False
-            if pos[1] > 28 or pos[1] < 0:
+            if pos[0] > 14:
+                self.block_moves("left")
+            if pos[0] < 0:
+                self.block_moves("right")
+            if pos[1] > 22 or pos[1] < 0:
                 return False
 
             if (pos[0], pos[1] + 1) in self.blocks_on_board:
@@ -190,7 +193,7 @@ class GameLoop:
         """tyhjentää rivin, kun se on täynnä sekä siirtää laudalle jäävät palat rivin alaspäin
         """
         n = 0
-        for i in range(len(self.board)):
+        for i in range(len(self.board)-1, -1, -1):
             row = self.board[i]
             if (255,255,255) not in row:
                 n += 1
@@ -200,14 +203,37 @@ class GameLoop:
                         del self.blocks_on_board[(j,i)]
                     except:
                         continue
-            if n > 0:
-                for key in sorted(list(self.blocks_on_board), key = lambda i: i[1])[::-1]:
-                    i, j = key
-                    if j < ind:
-                        new_key = (i, j + n)
-                        self.blocks_on_board[new_key] = self.blocks_on_board.pop(key)
+        if n > 0:
+            for key in sorted(list(self.blocks_on_board), key = lambda i: i[1])[::-1]:
+                i, j = key
+                if j < ind:
+                    new_key = (i, j + n)
+                    self.blocks_on_board[new_key] = self.blocks_on_board.pop(key)
 
-                self.score += 10
+        self.score += 10 * n
+
+    def highest_score(self):
+        with open("score.txt", "r") as scores:
+            content = scores.readlines()
+            highest_score = content[0].strip()
+
+        return highest_score
+
+    def new_score(self):
+        hscore = self.highest_score()
+        if self.score > int(hscore):
+            with open("score.txt", "w") as scores:
+                scores.write(str(self.score))
+
+
+    def game_over(self):
+
+        for i in self.board[1]:
+            if not self._can_move() and i != (255, 255, 255):
+                return True
+
+        return False
+
 
 
 
@@ -224,9 +250,22 @@ class GameLoop:
             self.block_moves("down")
             self.clear_row()
 
+            if self.game_over():
+                self.get_new_block = False
+                self.new_score()
+
+                font = pygame.font.SysFont("comicsans",60, bold = True)
+                text = font.render("Game over :(", 1, (225, 0, 0))
+                self.display.blit(text, (250, 200))
+                pygame.display.update()
+                pygame.time.delay(3000)
+                return False
+
             if not self._can_move():
                 self.block_stop()
                 self.change_block()
+
+
             self.draw_board()
             self.show_next_block()
             self._clock.tick(5)
