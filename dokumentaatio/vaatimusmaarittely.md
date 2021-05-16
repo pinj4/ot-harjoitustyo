@@ -10,6 +10,7 @@
   - palikoita pystyy kääntämään
   - näkyy seuraavaksi jonossa oleva palikka
 - pelaaja näkee pisteensä
+- pelaaja näkee aikaisemman parhaan pistetuloksen
 
 **jatkokehitysideoita**
 - pelaaja voi luoda käyttäjätunnuksen ja kirjautua sisään/ulos
