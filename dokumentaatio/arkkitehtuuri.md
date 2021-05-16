@@ -26,3 +26,6 @@ jotka vastaavat siis pelin kulun aikana tapahtuvien tapahtumine seurauksista gam
 
 Mainin metodissa `play()` ensin suoritetaan pygame.init(), luodaan display ja startataan GameLoop. Kutsutaan gamelooppin `handle_events()` metodia, joka valvoo pelin tapahtumia ja toimii niiden mukaan.
 
+## Tietojen pysyväistallennus
+
+Ohjelma tallentaa pelaajien huippupisteitä kansioon `score.txt`
