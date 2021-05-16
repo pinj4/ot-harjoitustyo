@@ -9,7 +9,7 @@
   - palikat tippuvat ja niitä voi liikuttaa 
   - palikoita pystyy kääntämään
   - näkyy seuraavaksi jonossa oleva palikka
-- pelaaja näkee pisteensä
+- pelaaja näkee pisteensä sekä aikaisemman parhaan pistetuloksen
 
 **jatkokehitysideoita**
 - pelaaja voi luoda käyttäjätunnuksen ja kirjautua sisään/ulos
@@ -21,6 +21,7 @@
 
 - [vaatimuusmaarittely.md](/laskarit/viikko1/vaatimusmaarittely.md)
 - [arkkitehtuuri.md](./dokumentaatio/arkkitehtuuri.md)
+- [testaus.md](./dokumentaatio/testaus.md)
 - [kayttoohje.md](./dokumentaatio/kayttoohje.md)
 - [tuntikirjanpito.md](./dokumentaatio/tuntikirjanpito.md)
 
