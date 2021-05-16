@@ -17,7 +17,11 @@
 | 3.5   | 2    | koodaamista
 |       | 2    | arkkitehtuuria, sekvenssikaaviota, testejä, repositioriota siistimmäksi  |
 | 4.5   | 1    | docstring dokumentaatiota, pylint  |
-|yht:   | 37   |            |
+| 13.5  | 1    | koodaamista  |
+| 14.5  | 2    | koodaamista  |
+| 15.5  | 2    | koodaamista, testausta |
+| 16.5  | 4    | testausta, dokumentaatiota, koodaamista  |
+|yht:   | 46   |            |
 
 
 
