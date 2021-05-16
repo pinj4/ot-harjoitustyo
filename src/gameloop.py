@@ -225,7 +225,8 @@ class GameLoop:
         return highest_score
 
     def new_score(self):
-        """kirjoittaa tiedostoon score.txt uuden pistetuloksen, jos se on suurempi kuin aikaisempi paras tulos
+        """kirjoittaa tiedostoon score.txt uuden pistetuloksen,
+        jos se on suurempi kuin aikaisempi paras tulos
         """
         hscore = self.highest_score()
         if self.score > int(hscore):
@@ -234,7 +235,8 @@ class GameLoop:
 
 
     def game_over(self):
-        """tarkistaa onko peli hävitty, eli onko tetris-palikoita kasaantunut pelialueen yläreunaan saakka
+        """tarkistaa onko peli hävitty,
+        eli onko tetris-palikoita kasaantunut pelialueen yläreunaan saakka
 
         Returns:
             boolean: True, jos peli on hävitty, False, jos ei
