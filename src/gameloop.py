@@ -213,6 +213,11 @@ class GameLoop:
         self.score += 10 * n
 
     def highest_score(self):
+        """lukee tiedoston score.txt sisällön
+
+        Returns:
+            str: korkein pistetulos
+        """
         with open("score.txt", "r") as scores:
             content = scores.readlines()
             highest_score = content[0].strip()
@@ -220,6 +225,8 @@ class GameLoop:
         return highest_score
 
     def new_score(self):
+        """kirjoittaa tiedostoon score.txt uuden pistetuloksen, jos se on suurempi kuin aikaisempi paras tulos
+        """
         hscore = self.highest_score()
         if self.score > int(hscore):
             with open("score.txt", "w") as scores:

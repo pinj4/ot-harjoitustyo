@@ -112,7 +112,7 @@ class Blocks():
             lista, jonka arvoina on block-olio, arvo x ja arvo y
         """
         block_type = choice(self.blocks)
-        x = 0
-        y = 0
-        block = [block_type, x, y]
+        j = 0
+        i = 0
+        block = [block_type, j, i]
         return block
